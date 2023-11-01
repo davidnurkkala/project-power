@@ -1,0 +1,50 @@
+{
+  "name": "project-power",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      },
+      "Packages": {
+        "$path": "Packages"
+      },
+      "RojoAssets": {
+        "$path": "Assets"
+      }
+    },
+
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/server"
+      },
+      "ServerPackages": {
+        "$path": "ServerPackages"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/client"
+        }
+      }
+    },
+
+    "ServerStorage": {
+      "MACRO_PLUGIN": {
+        "$className": "Folder",
+        "MacroOrder": {
+          "$path": "src/macro_plugin/MacroOrder.lua"
+        },
+        "Macros": {
+          "$path": "src/macro_plugin/macros"
+        },
+        "CustomUtil": {
+          "$path": "src/macro_plugin/util"
+        }
+      }
+    }
+  }
+}

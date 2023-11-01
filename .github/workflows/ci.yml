@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+    - main
+    
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: "Aftman Setup"
+      uses: ok-nick/setup-aftman@v0.3.0
+      with:
+        token: ${{ SECRETS.GITHUB_TOKEN }}
+      
+    - name: "Install Dependencies"
+      run: wally install
+      
+    - name: "Selene Check"
+      run: selene src
+
+    - name: "Stylua Check"
+      run: stylua --check src
+      
+    - name: Download Types
+      run: curl -s -O https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/master/scripts/globalTypes.d.lua
+
+    - name: Generate Sourcemap
+      run: rojo sourcemap default.project.json -o sourcemap.json
+
+    - name: Generate Types
+      run: wally-package-types --sourcemap sourcemap.json ./Packages
+
+#    - name: "Luau LSP Check"
+#      run: |
+#        luau-lsp analyze \
+#          --sourcemap=sourcemap.json \
+#          --defs=globalTypes.d.lua \
+#          --ignore=**Packages/** \
+#          --flag:LuauTarjanChildLimit=50000 \
+#          src

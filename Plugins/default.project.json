@@ -1,0 +1,24 @@
+{
+  "name": "chrono-plugins",
+  "tree": {
+    "$className": "DataModel",
+    "HttpService": {
+      "$className": "HttpService",
+      "$properties": {
+        "HttpEnabled": true
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "Plugins": {
+        "$className": "Folder",
+        "$path": "src/Plugins"
+      },
+      "Packages": {
+        "$className": "Folder",
+        "$path": "../packages"
+      }
+    }
+  }
+}

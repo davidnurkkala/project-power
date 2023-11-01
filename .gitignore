@@ -1,0 +1,15 @@
+# Luau LSP sourcemap
+sourcemap.json
+
+# Wally Packages
+Packages
+ServerPackages
+
+# Roblox Studio place files
+/*.rbxlx
+/*.rbxl
+/*.rbxlx.lock
+/*.rbxl.lock
+roblox.yml
+
+changelog.md
